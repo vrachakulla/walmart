@@ -18,14 +18,14 @@ public class TicketHelper {
 	int rowsLimit = 5;
 	int seatsPerRowLimit = 10;
 	int loadSeatCounter = 1;
-	int expiryDurationInSeconds = 0;
+	int expiryDurationInSeconds = 300;
 	List<Seat> heldSeats = new ArrayList<Seat>();
 
 	private Map<Integer, SeatHold> heldSeatMap = new HashMap<Integer, SeatHold>();
 	List<Seat> reservedSeats = new ArrayList<Seat>();
 
 	public void loadLimits() {
-		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("\\resources\\limits.properties");
+		InputStream inputStream = TicketHelper.class.getClassLoader().getResourceAsStream("limits.properties");
 		Properties properties = new Properties();
 		try {
 			properties.load(inputStream);
